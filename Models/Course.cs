@@ -1,9 +1,14 @@
 ﻿namespace EduHub.Models
 {
+    public enum CourseStatus
+    {
+        Draft,
+        Published,
+        UnderReview,
+        Archived
+    }
     public class Course
     {
-
-
         public int Id { get; set; }
 
         public string Title { get; set; }
@@ -32,8 +37,10 @@
 
         public int SubcategoryId { get; set; }
 
-        //Navigation Property
+        public CourseStatus Status { get; set; } = CourseStatus.UnderReview;
 
+
+        //Navigation Property
         public Category Category { get; set; }
 
         public Subcategory Subcategory { get; set; }
